@@ -1,0 +1,76 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=STIX+Two+Math&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'STIX Two Math', serif;
+}
+
+body {
+    background-color: #2a58ae;
+}
+
+.container {
+    display: inline;
+    width: 60%;
+    height: 200px;
+    position: absolute;
+    left: 35%;
+    top: 40%;
+}
+
+    .container .main-header {
+        font-size: 4rem;
+        color: white;
+    }
+
+a {
+    position: absolute;
+    display: block;
+    background-color: aliceblue;
+    width: 200px;
+    padding: 1%;
+    right: 7%;
+    bottom: 8%;
+    transition: .2s all;
+    cursor: pointer;
+    border-radius: 10px;
+    color: #2a58ae;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+@media screen and (max-width:870px) {
+    .direction {
+        display: flex;
+        font-size: 29px;
+        width: auto;
+    }
+}
+
+
+@media screen and (max-width:530px) {
+
+    .container {
+        display: inline;
+        width: 60%;
+        height: 200px;
+        position: absolute;
+        left: 30%;
+        top: 40%;
+    }
+
+        .container .main-header {
+            font-size: 30px;
+            text-decoration: underline;
+        }
+
+    a {
+        padding-left: 15px;
+        padding-top: 10px;
+        width: 110px;
+        font-size: 20px;
+    }
+}

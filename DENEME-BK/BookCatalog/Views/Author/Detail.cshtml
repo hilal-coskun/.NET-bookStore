@@ -1,0 +1,149 @@
+﻿
+@{ 
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kitap Satışı Admin Paneli">
+    <meta name="keywords" content="kitap,kitap kategorisi, sipariş, yazar,mütercim">
+    <meta name="author" content="Hilal Coskun">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css" />
+    <link rel="stylesheet" href="~/css/DetailStyle/Author.css">
+    <link rel="icon" href="~/images/StackOfBooks.svg">
+    <title>Mütercimler</title>
+
+</head>
+<body>
+    <div class="wrapper">
+        <aside class="sidebar">
+            <div class="bg-shadow">
+
+            </div>
+            <div class="sidebar-inner">
+                <div class="close">
+                    <i class="fas fa-times" aria-hidden="true"></i>
+                </div>
+                <div class="profile-info">
+                    <div class="profile-img">
+                        <img src="../../StackOfBooks.svg" alt="">
+                    </div>
+                    <div class="profile-data">
+                        <div class="name" style="font-family: 'Lora', serif;">BOOK CATALOG</div>
+                    </div>
+                </div>
+                <ul class="sidebar-menu">
+                    <li>
+                        <a asp-controller="bookcategory" asp-action="list">
+                            <div class="icon"><i class="fas fa-book"></i></div>
+                            <div class="title">Kitap Kategorileri</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="booktype" asp-action="list">
+                            <div class="icon"><i class="fas fa-book-open"></i></div>
+                            <div class="title">Kitap Türleri</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../Book/List/index.html">
+                            <div class="icon"><i class="fas fa-book-reader"></i></div>
+                            <div class="title">Kitap</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="author" asp-action="list">
+                            <div class="icon"><i class="fas fa-user-edit"></i></div>
+                            <div class="title">Yazar</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../Translator/List/index.html">
+                            <div class="icon"><i class="fas fa-globe-asia"></i></div>
+                            <div class="title">Mütercim</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div class="icon"><i class="fas fa-tags"></i></div>
+                            <div class="title">Sipariş</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../BookPublisher/List/index.html">
+                            <div class="icon"><i class="fas fa-list-alt"></i></div>
+                            <div class="title">Yayınevi</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="contact" asp-action="list">
+                            <div class="icon"><i class="fas fa-address-book"></i></div>
+                            <div class="title">İrtibat</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        <div class="main-container">
+            <nav class="top-navbar">
+                <div class="hamburger">
+                    <div class="hamburger-inner">
+                        <i class="fas fa-bars" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <ul class="menu">
+                    <li><a onclick="geri()"><i class="fas fa-arrow-left" style="cursor: pointer; padding-right: 20px;"></i></a> Yazar Detayı</li>
+                </ul>
+                <ul></ul>
+            </nav>
+            <article class="container">
+                <div class="item">
+                    <form action="">
+                        <div class="row">
+                            <div class="col-25" style="width:110px; height: 110px; background-color: black; margin: 10px;">
+                                <img src="" alt="">
+                            </div>
+                            <div class="col-50" style="padding-top: 20px; margin-left: 150px; ;">
+                                <label class="header" for="name">HALİDE EDİP ADIVAR</label>
+                                <button class="buton"><a href="#"> <i class="fas fa-question-circle"></i> İletişim Bilgileri</a></button>
+                                <p>
+                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum temporibus nobis
+                                    illum voluptatibus cupiditate consequuntur, quia voluptatum perspiciatis! In, aspernatur?
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="recordDate" style="font-weight: bold; padding-left: 10px; padding-top: 30px;">Yazara ait olan kitap sayısı</label>
+                                <label for="recordDate" style=" padding-left: 50px; padding-top: 20px;">20</label>
+                            </div>
+                            <div class="col-75">
+                                <button class="buton" style="margin-top: 30px; background-color: #7a91c0;"><a href="#"> <i class="fas fa-book"></i> Kitaplar</a></button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="recordDate" style="font-weight: bold; padding-left: 10px; padding-top: 30px;">Kayıt Tarihi</label>
+                                <label for="recordDate" style=" padding-left: 50px; padding-top: 20px;">20/12/2020</label>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 50px;">
+                            <button class="detailButton" style="background-color: rgb(182, 45, 45); padding: 10px;"><a href=""><i class="fas fa-trash" style="padding-right: 5px;"></i>Sil</a></button>
+                            <button class="detailButton" style="background-color: #7a91c0; padding: 10px;"><a asp-controller="author" asp-action="edit"><i class="fas fa-edit" style="padding-right: 5px;"></i>Düzenle</a></button>
+                        </div>
+                    </form>
+                </div>
+
+            </article>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>   
