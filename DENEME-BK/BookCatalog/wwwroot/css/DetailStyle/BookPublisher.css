@@ -1,0 +1,397 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+* {
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #bbc7df;
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+}
+
+    .wrapper .sidebar {
+        position: relative;
+    }
+
+        .wrapper .sidebar .sidebar-inner {
+            width: 250px;
+            position: relative;
+            top: 0;
+            height: 122%;
+            background-color: #2a58ae;
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+
+    .wrapper .main-container {
+        margin-left: 0;
+        width: calc(100% - 250px);
+        transition: all 0.3s ease;
+    }
+
+    .wrapper .sidebar-inner .profile-info {
+        padding: 30px 50px;
+        text-align: center;
+    }
+
+        .wrapper .sidebar-inner .profile-info .profile-img {
+            width: 125px;
+            margin: 0 auto 15px;
+        }
+
+            .wrapper .sidebar-inner .profile-info .profile-img img {
+                width: 100%;
+                display: block;
+            }
+
+        .wrapper .sidebar-inner .profile-info .profile-data .name {
+            padding-top: 5px;
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+    .wrapper .sidebar-menu li a {
+        font-size: 14px;
+        padding: 10px 50px;
+        display: block;
+        height: 70px;
+        color: #88a3d0;
+        position: relative;
+        margin-bottom: 1px;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+        .wrapper .sidebar-menu li a .icon {
+            font-size: 25px;
+            margin-bottom: 5px;
+        }
+
+        .wrapper .sidebar-menu li a:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 100%;
+            background-color: #1fafac;
+            display: none;
+        }
+
+        .wrapper .sidebar-menu li a:hover,
+        .wrapper .sidebar-menu li a.active {
+            background: #1d4c9e;
+            color: #fff;
+        }
+
+            .wrapper .sidebar-menu li a:hover::before,
+            .wrapper .sidebar-menu li a.active::before {
+                display: block;
+            }
+
+    /*
+.wrapper .main-container .top-navbar{
+    height: 60px;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+}*/
+
+    .wrapper .main-container .top-navbar {
+        width: calc(100% - 250px);
+        height: 60px;
+        background: white;
+        display: flex;
+        justify-content: space-between;
+        padding: 15px 25px;
+        position: fixed;
+        top: 0;
+        left: 250px;
+        box-shadow: 0 2px 2px rgba(0, 0, 0, .4);
+        transition: all .3s ease;
+    }
+
+        .wrapper .main-container .top-navbar .hamburger {
+            width: 30px;
+            height: 30px;
+            position: relative;
+            display: none;
+        }
+
+            .wrapper .main-container .top-navbar .hamburger .fas {
+                color: #88a3d0;
+                font-size: 25px;
+                cursor: pointer;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+        .wrapper .main-container .top-navbar .menu {
+            display: flex;
+            align-items: center;
+            font-size: 25px;
+            font-weight: 700;
+            position: relative;
+        }
+
+    .wrapper .main-container .container {
+        padding: 30px;
+        margin-top: 60px;
+    }
+
+        .wrapper .main-container .container .item {
+            background: rgb(231, 234, 238);
+            padding: 20px;
+            border-bottom: 1px solid #d9e2e7;
+            font-size: 14px;
+            line-height: 22px;
+            margin-bottom: 15px;
+        }
+
+    .wrapper .close {
+        visibility: hidden;
+        position: absolute;
+        top: 5px;
+        right: 15px;
+        font-size: 25px;
+        color: whitesmoke;
+        cursor: pointer;
+    }
+
+        .wrapper .close:hover {
+            opacity: .7;
+        }
+
+    .wrapper .bg-shadow {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #000;
+        z-index: 998;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+
+/*TABLE*/
+
+input[type=text], select, textarea {
+    width: 70%;
+    padding: 7px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+label {
+    padding: 1px 1px 1px 0;
+    display: inline-block;
+}
+
+input[type=submit] {
+    background-color: #7a91c0;
+    color: white;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: left;
+}
+
+.col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 4px;
+}
+
+.col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 4px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+table, tr, th, td {
+    border: none
+}
+
+.table {
+    width: 100%;
+    display: table;
+}
+
+    .table tbody > tr > td,
+    .table tbody > tr > th {
+        padding: 10px 10px 10px 20px;
+    }
+
+    .table tbody > tr > td {
+        border-top: 1px solid #ddd;
+    }
+
+th {
+    text-align: left;
+    color: #688a7e;
+    font-weight: bold;
+}
+
+.table > tbody > tr:hover > td, .table > tbody > tr:hover > th {
+    background: #f5f5f5
+}
+
+.detailButton {
+    padding: 7px;
+    background-color: #7a91c0;
+    border-radius: 10px;
+    border-color: white;
+}
+
+    .detailButton a {
+        color: #fff;
+    }
+
+.item .row .header {
+    color: #1b459b;
+    font-size: 20px;
+    padding-bottom: 20px;
+    font-weight: 700
+}
+
+.item .row .buton {
+    border: none;
+    background-color: #7a91c0;
+    border-radius: 20px;
+    padding: 5px;
+    margin-left: 100px;
+}
+
+    .item .row .buton a {
+        font-size: 13px;
+        color: white;
+    }
+
+@media screen and (max-width:800px) {
+
+    .wrapper .close {
+        visibility: visible;
+    }
+
+    .wrapper .sidebar .sidebar-inner {
+        position: relative;
+        left: -100%;
+    }
+
+    .wrapper .main-container {
+        z-index: 999;
+    }
+
+    .wrapper.active .main-container {
+        z-index: -1;
+    }
+
+    .wrapper .main-container,
+    .wrapper .main-container .top-navbar {
+        width: 100%;
+        margin-left: -250px;
+    }
+
+        .wrapper .main-container .top-navbar {
+            z-index: 997;
+            left: 250px;
+        }
+
+            .wrapper .main-container .top-navbar .hamburger {
+                display: block;
+            }
+
+    .wrapper.active .sidebar-inner {
+        left: 0;
+    }
+
+    .wrapper.active .bg-shadow {
+        visibility: visible;
+        opacity: .7;
+    }
+
+    table, thead, tbody, th, td, tr
+    table, thead, tbody, tfoot, th, td, tr {
+        display: block;
+    }
+
+    .table thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    .table tr {
+        border: 1px solid #ccc;
+    }
+
+    .table td {
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50% !important;
+    }
+
+        .table td:before {
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            width: 45%;
+            padding-right: 10px;
+            white-space: nowrap;
+            font-weight: bold;
+        }
+
+        .table td:before {
+            content: attr(data-title);
+        }
+
+    th {
+        display: none;
+    }
+}
+
+@media screen and (max-width:530px) {
+
+    .wrapper .close {
+        visibility: visible;
+    }
+
+    .wrapper .main-container .top-navbar .menu li {
+        font-size: 18px;
+    }
+
+    .col-25, .col-75, input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+    }
+
+    .item .row .buton {
+        margin-left: 0;
+        margin-bottom: 15px;
+    }
+}
