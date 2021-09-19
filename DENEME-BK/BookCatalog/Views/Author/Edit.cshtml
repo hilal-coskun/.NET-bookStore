@@ -1,0 +1,47 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<ul class="menu">
+    <li><a onclick="geri()"><i class="fas fa-arrow-left" style="cursor: pointer; padding-right: 20px;"></i></a> Yazar Düzenle</li>
+</ul>
+<ul></ul>
+            </nav>
+<article class="container">
+    <div class="item">
+        <form method="post" asp-action="editPost">
+            <div class="row">
+                <div class="col-25">
+                    <label for="name">Ad</label>
+                </div>
+                <div class="col-75">
+                    <select type="text" id="name" name="name">
+                        <option value="">Peyami Safa</option>
+                        <option value="">Rıfat Ilgaz</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row" style="padding-top: 10px;">
+                <div class="col-25">
+                    <label for="about">Hakkında</label>
+                </div>
+                <div class="col-75">
+                    <textarea type="text" id="about" name="about"></textarea>
+                </div>
+            </div>
+            <div class="row" style="padding-top: 10px;">
+                <div class="col-25">
+                    <label for="logo">Fotoğraf</label>
+                </div>
+                <div class="col-75">
+                    <input type="file" name="about" id="about">
+                </div>
+            </div>
+            <div class="row" style="margin-top: 30px;">
+                <button class="submitButton"><a >Kaydet</a></button>
+            </div>
+        </form>
+    </div>
+
+</article>

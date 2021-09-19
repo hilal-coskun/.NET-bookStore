@@ -1,0 +1,71 @@
+﻿@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+@using X.PagedList.Web.Common;
+@model IPagedList<Entities.Concrete.Author>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<ul class="menu">
+    <li>Yazarlar</li>
+</ul>
+<ul>
+    <button class="detailButton"><a asp-controller="author" asp-action="add"><i class="fas fa-plus-square" style="padding-right: 5px;"></i>EKLE</a></button>
+</ul>
+</nav>
+<article class="container">
+    <div class="item">
+        <form action="">
+            <div class="row">
+                <div class="col-25">
+                    <label for="name">Ad</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="name" name="name">
+                </div>
+            </div>
+            <div class="row" style="margin-top: 20px;">
+                <button class="detailButton"><a href=""><i class="fas fa-filter" style="padding-right: 5px;"></i>Filtrele</a></button>
+            </div>
+        </form>
+    </div>
+    <div class="item">
+        <table class="table">
+            <th>Ad</th>
+            <th>Detay</th>
+            <tbody>
+                @foreach (var author in Model)
+                {
+                    <tr>
+                        <td data-title="Ad" class="name">@author.Name</td>
+                        <td data-title="Detay">
+                            <button class="detailButton"><a asp-controller="author" asp-action="detail" asp-route-id="@author.ID"><i class="fas fa-info-circle" style="padding-right: 5px;"></i>Detay</a></button>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+        <div class="pull-right" style="display:flex; justify-content:center; align-items:center; margin-top:30px;">
+            @Html.PagedListPager((IPagedList)Model, page => Url.Action("List",
+               new
+                    {
+                        page
+
+             }),
+             new PagedListRenderOptions
+             {
+                 LiElementClasses = new string[] { "page-item" },
+                 PageClasses = new string[] { "page-link" },
+                 Display = PagedListDisplayMode.IfNeeded
+
+                  })
+        </div>
+        <div class="pageDirection">
+            <a href="" style="color: #7a91c0;"><i class="fas fa-arrow-left"></i></a>
+            <a href="" style="color: #7a91c0;"><i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+</article>
