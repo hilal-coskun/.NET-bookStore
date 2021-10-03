@@ -1,0 +1,45 @@
+﻿@model Translator
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<ul class="menu">
+    <li><a onclick="geri()"><i class="fas fa-arrow-left" style="cursor: pointer; padding-right: 20px;"></i></a> Mütercim Ekle</li>
+</ul>
+<ul></ul>
+</nav>
+<article class="container">
+    <div class="item">
+        <form asp-controller="Translator" asp-action="Add" method="post" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-25">
+                    <label for="name" style="font-weight: bold;">Ad</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" asp-for="Name" name="name" id="name">
+                </div>
+            </div>
+            <div class="row" style="padding-top: 10px;">
+                <div class="col-25">
+                    <label for="about" style="font-weight: bold;">Hakkında</label>
+                </div>
+                <div class="col-75">
+                    <textarea type="text" asp-for="About" id="about" name="about"></textarea>
+                </div>
+            </div>
+            <div class="row" style="padding-top: 10px;">
+                <div class="col-25">
+                    <label for="LogoFile" style="font-weight: bold;">Logo</label>
+                </div>
+                <div class="col-75">
+                    <input type="file" asp-for="LogoFile" name="LogoFile" id="LogoFile">
+                </div>
+            </div>
+            <div class="row" style="margin-top: 30px;">
+                <button type="submit" class="submitButton"><a>Kaydet</a></button>
+            </div>
+        </form>
+    </div>
+
+</article>
