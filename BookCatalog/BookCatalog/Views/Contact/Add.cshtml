@@ -1,0 +1,67 @@
+﻿@model Contact
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<ul class="menu">
+    <li><a onclick="geri()"><i class="fas fa-arrow-left" style="cursor: pointer; padding-right: 20px;"></i></a> İrtibat Ekle</li>
+</ul>
+<ul></ul>
+</nav>
+<article class="container">
+    <div class="item">
+        <form asp-controller="Contact" asp-action="Add" method="post">
+            <div class="row">
+                <div class="col-25">
+                    <label for="contactType" style="font-weight: 700;">Tipi</label>
+                </div>
+                <!--
+        <div class="col-75">
+         <select asp-for="IsCorporation" name="contactType" id="contactType">
+             <option value="Kisi">Kişi</option>
+             <option value="Firma">Firma</option>
+         </select>
+     </div>
+    -->
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="name" style="font-weight: 700;">Ad</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="name" asp-for="Name" name="name">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="Title" style="font-weight: 700;">Unvan</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="Title" asp-for="Title" name="Title">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="mobile" style="font-weight: 700;">Cep Telefonu</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="mobile" asp-for="Mobile" name="mobile">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="email" style="font-weight: 700;">E-mail</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="email" asp-for="Email" name="email">
+                </div>
+            </div>
+            
+            <div class="row" style="margin-top: 20px;">
+                <button type="submit" class="submitButton"><a>Kaydet</a></button>
+            </div>
+        </form>
+    </div>
+
+</article>

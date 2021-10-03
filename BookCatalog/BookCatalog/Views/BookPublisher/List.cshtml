@@ -1,0 +1,74 @@
+﻿@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+@using X.PagedList.Web.Common;
+@model IPagedList<Entities.Concrete.BookPublisher>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<ul class="menu">
+    <li>Yayınevleri</li>
+</ul>
+<ul>
+    <button class="detailButton"><a asp-controller="BookPublisher" asp-action="Add"><i class="fas fa-plus-square" style="padding-right: 5px;"></i>EKLE</a></button>
+</ul>
+</nav>
+<article class="container">
+    <div class="item">
+        <form asp-action="list" method="get">
+            <div class="row">
+                <div class="col-25">
+                    <label for="name">Ad</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="name" name="searchString">
+                </div>
+            </div>
+            <div class="row" style="margin-top: 20px;">
+                <button class="detailButton"><a><i class="fas fa-filter" style="padding-right: 5px;"></i>Filtrele</a></button>
+                <button class="detailButton"><a asp-action="List"><i class="fas fa-filter" style="padding-right: 5px;"></i>Remove Filter</a></button>
+            </div>
+        </form>
+    </div>
+    <div class="item">
+        <table class="table">
+            <thead>
+            <th>Ad</th>
+            <th>Kayıt Tarihi</th>
+           </thead>
+
+           <tbody>
+               @foreach (var publisher in Model)
+               {
+               <tr>
+                    <td data-title="Ad" class="name">@publisher.Contact.Name</td>
+                    <td data-title="date" class="date">@(((DateTime)publisher.RecordDate).ToString("dd-MM-yyyy"))</td>
+                    <td data-title="Detay">
+                        <button class="detailButton"><a asp-controller="BookPublisher" asp-action="Detail" asp-route-id="@publisher.ID"><i class="fas fa-info-circle" style="padding-right: 5px;"></i>Detay</a></button>
+                    </td>
+            </tr>
+        }
+        </tbody>
+        </table>
+        <div class="pull-right" style="display:flex; justify-content:center; align-items:center; margin-top:30px;">
+            @Html.PagedListPager((IPagedList)Model, page => Url.Action("List",
+               new
+                    {
+                        page
+
+             }),
+             new PagedListRenderOptions
+             {
+                 LiElementClasses = new string[] { "page-item" },
+                 PageClasses = new string[] { "page-link" },
+                 Display = PagedListDisplayMode.IfNeeded
+
+                  })
+        </div>
+        <div class="pageDirection">
+            <a href="" style="color: #7a91c0;"><i class="fas fa-arrow-left"></i></a>
+            <a href="" style="color: #7a91c0;"><i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+</article>

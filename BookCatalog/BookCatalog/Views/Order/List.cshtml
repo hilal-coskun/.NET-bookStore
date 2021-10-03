@@ -1,0 +1,99 @@
+﻿@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+@using X.PagedList.Web.Common;
+@model IPagedList<Entities.Concrete.Order>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<ul class="menu">
+    <li>Siparişler</li>
+</ul>
+<ul>
+    <button class="detailButton"><a asp-controller="Order" asp-action="Add"><i class="fas fa-plus-square" style="padding-right: 5px;"></i>EKLE</a></button>
+</ul>
+</nav>
+<article class="container">
+    <div class="item">
+        <form action="">
+            <div class="row">
+                <div class="col-25">
+                    <label for="name">Müşteri Adı</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="name" name="name">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="orderStatus">Sipariş Durumu</label>
+                </div>
+                <div class="col-75">
+                    <select name="orderStatus" id="orderStatus">
+                        <option value="Beklemede">Beklemede</option>
+                        <option value="Hazırlanıyor">Hazırlanıyor</option>
+                        <option value="KargoyaVerildi">Kargoya Verildi</option>
+                        <option value="TeslimEdildi">Teslim Edildi</option>
+                        <option value="IptalEdildi">Iptal Edildi</option>
+                        <option value="OdemeBekleniyor">Odeme Bekleniyor</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="date">Sipariş Tarihi</label>
+                </div>
+                <div class="col-75">
+                    <input type="date" id="date" name="date">
+                </div>
+            </div>
+            <div class="row" style="margin-top: 20px;">
+                <button class="detailButton"><a ><i class="fas fa-filter" style="padding-right: 5px;"></i>Filtrele</a></button>
+            </div>
+        </form>
+    </div>
+    <div class="item">
+        <table class="table">
+            <th>Sipariş Durumu</th>
+            <th>Müşteri Adı</th>
+            <th>Sipariş Tarihi</th>
+            <th>Detay</th>
+            <tbody>
+
+                @foreach (var order in Model)
+                {
+                    <tr>
+                        <td data-title="Sipariş Durumu">@order.OrderStatus.Name</td>
+                        <td data-title="Müşteri Adı">@order.Contact.Name</td>
+                        <td data-title="Sipariş Tarihi">@(((DateTime)order.RecordDate).ToString("dd-MM-yyyy"))</td>
+                        <td data-title="Detay">
+                            <button class="detailButton"><a asp-controller="order" asp-action="detail" asp-route-id="@order.ID"><i class="fas fa-info-circle" style="padding-right: 5px;"></i>Detay</a></button>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+
+        <div class="pull-right" style="display:flex; justify-content:center; align-items:center; margin-top:30px;">
+            @Html.PagedListPager((IPagedList)Model, page => Url.Action("List",
+               new
+                    {
+                        page
+
+             }),
+             new PagedListRenderOptions
+             {
+                 LiElementClasses = new string[] { "page-item" },
+                 PageClasses = new string[] { "page-link" },
+                 Display = PagedListDisplayMode.IfNeeded
+
+                  })
+        </div>
+        <div class="pageDirection">
+            <a href="" style="color: #7a91c0;"><i class="fas fa-arrow-left"></i></a>
+            <a href="" style="color: #7a91c0;"><i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+</article>
