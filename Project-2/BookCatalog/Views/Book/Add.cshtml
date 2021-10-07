@@ -1,0 +1,138 @@
+﻿@model Book
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <ul class="menu">
+        <li><a onclick="geri()"><i class="fas fa-arrow-left" style="cursor: pointer; padding-right: 20px;"></i></a> Kitap Ekle</li>
+    </ul>
+    <ul></ul>
+</nav>
+<article class="container">
+    <div class="item">
+        <form asp-controller="book" asp-action="add" method="post" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-25">
+                    <label for="name" style="font-weight: bold;">Ad</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" asp-for="Name" name="name" id="name">
+                </div>
+            </div>
+            <div class="row" style="padding-top: 10px;">
+                <div class="col-25">
+                    <label for="author" style="font-weight: bold;">Yazar Adı</label>
+                </div>
+                <div class="col-75">
+                    @Html.DropDownListFor(x => x.AuthorID, (List<SelectListItem>)ViewBag.v4, new { @id = "author" })
+                </div>
+            </div>
+            <div class="row" style="padding-top: 10px;">
+                <div class="col-25">
+                    <label for="bookCategory" style="font-weight: bold;">Kitap Kategorisi</label>
+                </div>
+                <div class="col-75">
+                    @Html.DropDownListFor(x => x.BookCategoryID, (List<SelectListItem>)ViewBag.v5, new { @id = "bookCategory" })
+                </div>
+            </div>
+            <div class="row" style="padding-top: 10px;">
+                <div class="col-25">
+                    <label for="bookType" style="font-weight: bold;">Kitap Türü</label>
+                </div>
+                <div class="col-75">
+                    @Html.DropDownListFor(x => x.BookTypeID, (List<SelectListItem>)ViewBag.v6, new { @id = "bookType" })
+                </div>
+            </div>
+            <div class="row" style="padding-top: 10px;">
+                <div class="col-25">
+                    <label for="bookPublisher" style="font-weight: bold;">Yayınevi</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" name="bookPublisher" asp-for="BookPublisherID" id="page">
+                </div>
+            </div>
+            <div class="row" style="padding-top: 10px;">
+                <div class="col-25">
+                    <label for="language" style="font-weight: bold;">Dil</label>
+                </div>
+                <div class="col-75">
+                    @Html.DropDownListFor(x => x.LanguageID, (List<SelectListItem>)ViewBag.v1, new { @id = "language" })
+                    <!--<input type="text" name="language" asp-for="LanguageID" id="language"> -->
+                </div>
+            </div>
+            <div class="row" style="padding-top: 10px;">
+                <div class="col-25">
+                    <label for="paperType" style="font-weight: bold;">Kağıt Tipi</label>
+                </div>
+                <div class="col-75">
+                    @Html.DropDownListFor(x => x.PaperTypeID, (List<SelectListItem>)ViewBag.v2, new { @id = "paperType" })
+                </div>
+            </div>
+            <div class="row" style="padding-top: 10px;">
+                <div class="col-25">
+                    <label for="page" style="font-weight: bold;">Sayfa Sayısı</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" name="PagesOfNumber" asp-for="PagesOfNumber" id="page">
+                </div>
+            </div>
+            <div class="row" style="padding-top: 10px;">
+                <div class="col-25">
+                    <label for="ısbn" style="font-weight: bold;">ISBN</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" name="ISBN" asp-for="ISBN" id="ısbn">
+                </div>
+            </div>
+            <div class="row" style="padding-top: 10px;">
+                <div class="col-25">
+                    <label for="translator" style="font-weight: bold;">Mütercim</label>
+                </div>
+                <div class="col-75">
+                    @Html.DropDownListFor(x => x.TranslatorID, (List<SelectListItem>)ViewBag.v7, new { @id = "translator" })
+                </div>
+            </div>
+            <div class="row" style="padding-top: 10px;">
+                <div class="col-25">
+                    <label for="stok" style="font-weight: bold;">Stok Sayısı</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" name="AmountOfStock" asp-for="AmountOfStock" id="stok">
+                </div>
+            </div>
+            <div class="row" style="padding-top: 10px;">
+                <div class="col-25">
+                    <label for="price" style="font-weight: bold;">Fiyat</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" name="price" asp-for="Price" id="price">
+                </div>
+            </div>
+            <div class="row" style="padding-top: 10px;">
+                <div class="col-25">
+                    <label for="stok" style="font-weight: bold;">Açıklama</label>
+                </div>
+                <div class="col-75">
+                    <textarea type="text" name="blurb" asp-for="Blurb" id="stok"></textarea>
+                </div>
+            </div>
+            <div class="row" style="padding-top: 10px;">
+                <div class="col-25">
+                    <label for="PictureFile" style="font-weight: bold;">Fotoğraf</label>
+                </div>
+                <div class="col-75">
+                    <input type="file" asp-for="PictureFile" name="PictureFile" id="PictureFile">
+                </div>
+            </div>
+            <div class="row" style="margin-top: 30px;">
+                <button type="submit" class="submitButton"><a>Kaydet</a></button>
+            </div>
+
+        </form>
+    </div>
+
+</article>
+
+
+<script src="../../main.js?v=3"></script>

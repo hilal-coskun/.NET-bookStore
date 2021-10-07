@@ -1,0 +1,37 @@
+﻿@model ValueTuple<BookType, IEnumerable<BookType>> 
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+    <ul class="menu">
+        <li><a onclick="geri()"><i class="fas fa-arrow-left" style="cursor: pointer; padding-right: 20px;"></i></a> Kitap Türü Düzenle</li>
+    </ul>
+    <ul></ul>
+</nav>
+<article class="container">
+    <div class="item">
+        <form asp-controller="BookType" asp-action="Edit" method="post">
+            <div class="row">
+                <div class="col-25">
+                    <label for="bookCategory">Kitap Kategori</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" disabled asp-for="Item1.BookCategory" id="bookCategory" name="bookCategory">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="name">Ad</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" asp-for="Item1.Name" id="name" name="name">
+                </div>
+            </div>
+            <div class="row" style="margin-top: 20px;">
+                <button type="submit" class="submitButton"><a>Kaydet</a></button>
+            </div>
+        </form>
+    </div>
+
+</article>

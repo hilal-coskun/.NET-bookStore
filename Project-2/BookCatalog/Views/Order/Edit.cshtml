@@ -1,0 +1,55 @@
+﻿@model Order
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+    <ul class="menu">
+        <li><a onclick="geri()"><i class="fas fa-arrow-left" style="cursor: pointer; padding-right: 20px;"></i></a> Sipariş Düzenle</li>
+    </ul>
+    <ul></ul>
+</nav>
+<article class="container">
+    <div class="item">
+        <form method="post" asp-action="edit">
+            <div class="row">
+                <div class="col-25">
+                    <label for="name">Müşteri Adı</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" asp-for="Contact.Name" id="name" name="name">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="paymentchannel">Ödeme Yöntemi</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" asp-for="PaymentChannel.Name" id="paymentchannel" name="paymentchannel">
+                </div>
+            </div>
+            <div class="row" style="margin-top: 15px;">
+                <div class="col-25">
+                    <label for="name">Kitap Adı ve Adedi</label>
+                </div>
+                <div class="col-25">
+                </div>
+            </div>
+            <div id="card">
+                <div class="row">
+                    <div class="col-25" style="margin-top: 7px;">
+                        <button id="plus" style="border: none; cursor: pointer;"><i class="fas fa-plus-square" style="font-size: 20px; color: #7a91c0;"></i></button>
+                        <input type="text" asp-for="Book.Name" name="bookName" id="bookName">
+                    </div>
+                    <div class="col-25" style="margin-top: 5px; margin-bottom: 1px;">
+                        <input type="number" name="NumberOfBook" asp-for="NumberOfBook" style="padding: 7px; border: .5px solid rgb(211, 206, 206); appearance:textfield ; ">
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 20px;">
+                <button type="submit" class="submitButton"><a>Kaydet</a></button>
+            </div>
+        </form>
+    </div>
+
+</article>
