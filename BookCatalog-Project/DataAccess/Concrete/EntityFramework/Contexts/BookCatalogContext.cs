@@ -18,6 +18,8 @@ namespace DataAccess.Concrete.EntityFramework.Contexts
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<BookCategory>().HasMany(I => I.BookType).WithOne(I => I.BookCategory).HasForeignKey(I => I.BookCategoryID);
+            modelBuilder.Entity<BookCategory>().HasMany(I => I.Book).WithOne(I => I.BookCategory).HasForeignKey(I => I.BookCategoryID);
+
         }
 
 

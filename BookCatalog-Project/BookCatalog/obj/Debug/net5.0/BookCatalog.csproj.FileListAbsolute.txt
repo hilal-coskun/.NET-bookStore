@@ -222,3 +222,14 @@ C:\Users\USER\Desktop\yedek\DENEME-BK\BookCatalog\obj\Debug\net5.0\Razor\Views\A
 C:\Users\USER\Desktop\yedek\DENEME-BK\BookCatalog\obj\Debug\net5.0\Razor\Views\Account\ResetPassword.cshtml.g.cs
 C:\Users\USER\Desktop\yedek\DENEME-BK\BookCatalog\obj\Debug\net5.0\Razor\Views\Book\AuthorBookList.cshtml.g.cs
 C:\Users\USER\Desktop\yedek\DENEME-BK\BookCatalog\obj\Debug\net5.0\Razor\Views\Book\TranslatorBookList.cshtml.g.cs
+C:\Users\USER\Desktop\yedek\DENEME-BK\BookCatalog\obj\Debug\net5.0\Razor\Views\Author\Delete.cshtml.g.cs
+C:\Users\USER\Desktop\yedek\DENEME-BK\BookCatalog\obj\Debug\net5.0\Razor\Views\Contact\Delete.cshtml.g.cs
+C:\Users\USER\Desktop\yedek\DENEME-BK\BookCatalog\obj\Debug\net5.0\Razor\Views\Home\NotFound.cshtml.g.cs
+C:\Users\USER\Desktop\yedek\DENEME-BK\BookCatalog\bin\Debug\net5.0\NLog.dll
+C:\Users\USER\Desktop\yedek\DENEME-BK\BookCatalog\bin\Debug\net5.0\NLog.config
+C:\Users\USER\Desktop\yedek\DENEME-BK\BookCatalog\obj\Debug\net5.0\Razor\Views\BookType\ErrorView.cshtml.g.cs
+C:\Users\USER\Desktop\yedek\DENEME-BK\BookCatalog\obj\Debug\net5.0\Razor\Views\BookCategory\ErrorView.cshtml.g.cs
+C:\Users\USER\Desktop\yedek\DENEME-BK\BookCatalog\obj\Debug\net5.0\Razor\Views\Translator\ErrorView.cshtml.g.cs
+C:\Users\USER\Desktop\yedek\DENEME-BK\BookCatalog\obj\Debug\net5.0\Razor\Views\Author\ErrorView.cshtml.g.cs
+C:\Users\USER\Desktop\yedek\DENEME-BK\BookCatalog\obj\Debug\net5.0\Razor\Views\Contact\ErrorView.cshtml.g.cs
+C:\Users\USER\Desktop\yedek\DENEME-BK\BookCatalog\obj\Debug\net5.0\Razor\Views\BookPublisher\ErrorView.cshtml.g.cs

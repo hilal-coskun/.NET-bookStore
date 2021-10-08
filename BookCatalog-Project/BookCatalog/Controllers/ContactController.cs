@@ -1,4 +1,5 @@
-﻿using BookCatalog.Models;
+﻿using BookCatalog.Filter;
+using BookCatalog.Models;
 using Business.Abstract;
 using Entities.Concrete;
 using Microsoft.AspNetCore.Mvc;
@@ -10,6 +11,7 @@ using X.PagedList;
 
 namespace BookStore.Controllers
 {
+    [UserFilter]
     public class ContactController : Controller
     {
         private IContactService _contactService;
@@ -56,8 +58,17 @@ namespace BookStore.Controllers
         [HttpPost]
         public IActionResult Detail(Contact contact)
         {
-            _contactService.Update(contact);
-            return RedirectToAction("List");
+            try
+            {
+                _contactService.Update(contact);
+                return RedirectToAction("List");
+            }
+            catch (Exception)
+            {
+                return View("ErrorView");
+                throw;
+            }
+            
         }
 
 
@@ -87,11 +98,30 @@ namespace BookStore.Controllers
 
         }
 
-
-        public IActionResult Delete(int id, Contact contact)
+        [HttpGet]
+        public IActionResult Delete(int id)
         {
-            _contactService.Delete(contact);
-            return RedirectToAction("List");
+           var obj =  _contactService.GetById(id);
+            return View(obj);
+        }
+
+        [HttpPost]
+        public IActionResult DeletePost(int id)
+        {
+            var obj = _contactService.GetById(id);
+            try
+            {
+                obj = _contactService.GetById(id);
+                _contactService.Delete(obj);
+                return RedirectToAction("List");
+            }
+            catch (Exception)
+            {
+                ViewBag.ErrorTitle = $"{obj.Name} rolü kullanılmaktadır.";
+                ViewBag.ErrorMessage = $"{obj.Name} 'ne ait işlem olduğu için silinemez. Bu iletişimi silmek istiyorsanız, lütfen yayınevlerinden veya siparişlerden bu iletişimi kaldırın ve ardından silmeyi tekrar deneyin.";
+                return View("ErrorView");
+                throw;
+            }
         }
     }
 }

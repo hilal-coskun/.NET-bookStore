@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace BookStore.Controllers
 {
+    [UserFilter]
     public class BookCategoryController : Controller
     {
         private IBookCategoryService _bookCategoryService;
@@ -112,8 +113,19 @@ namespace BookStore.Controllers
         public IActionResult DeletePost(int id)
         {
             var obj = _bookCategoryService.GetById(id);
-            _bookCategoryService.Delete(obj);
-            return RedirectToAction("List");
+            try
+            {
+                obj = _bookCategoryService.GetById(id);
+                _bookCategoryService.Delete(obj);
+                return RedirectToAction("List");
+            }
+            catch (Exception)
+            {
+                ViewBag.ErrorTitle = $"{obj.Name} rolü kullanılmaktadır.";
+                ViewBag.ErrorMessage = $"{obj.Name} kitap kategorisine ait kitap türü olduğu için kategori silinemez. Bu kategoriyi silmek istiyorsanız, lütfen kitap türlerinden bu kategoriyi kaldırın ve ardından silmeyi tekrar deneyin.";
+                return View("ErrorView");
+                throw;
+            }
         }
 
     }

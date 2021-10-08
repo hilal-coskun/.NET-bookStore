@@ -1,4 +1,5 @@
-﻿using BookCatalog.Models;
+﻿using BookCatalog.Filter;
+using BookCatalog.Models;
 using Business.Abstract;
 using Entities.Concrete;
 using Microsoft.AspNetCore.Hosting;
@@ -13,6 +14,7 @@ using X.PagedList;
 
 namespace BookStore.Controllers
 {
+    [UserFilter]
     public class BookController : Controller
     {
         private IBookService _bookService;

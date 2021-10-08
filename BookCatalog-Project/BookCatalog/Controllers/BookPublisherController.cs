@@ -1,4 +1,5 @@
-﻿using BookCatalog.Models;
+﻿using BookCatalog.Filter;
+using BookCatalog.Models;
 using Business.Abstract;
 using Entities.Concrete;
 using Microsoft.AspNetCore.Authorization;
@@ -12,7 +13,7 @@ using X.PagedList;
 
 namespace BookStore.Controllers
 {
-    [Authorize]
+    [UserFilter]
     public class BookPublisherController : Controller
     {
         private IBookPublisherService _bookPublisherService;
@@ -74,8 +75,17 @@ namespace BookStore.Controllers
         [HttpPost]
         public IActionResult Detail(BookPublisher bookPublisher)
         {
-            _bookPublisherService.Update(bookPublisher);
-            return RedirectToAction("List");
+            try
+            {
+                _bookPublisherService.Update(bookPublisher);
+                return RedirectToAction("List");
+            }
+            catch (Exception)
+            {
+                return View("ErrorView");
+                throw;
+            }
+
         }
 
 
@@ -90,8 +100,22 @@ namespace BookStore.Controllers
         public IActionResult DeletePost(int id)
         {
             var obj = _bookPublisherService.GetByIdCategories(id);
-            _bookPublisherService.Delete(obj);
-            return RedirectToAction("List");
+
+            try
+            {
+                obj = _bookPublisherService.GetByIdCategories(id);
+                _bookPublisherService.Delete(obj);
+                return RedirectToAction("List");
+            }
+            catch (Exception)
+            {
+                ViewBag.ErrorTitle = $"{obj.Contact.Name} rolü kullanılmaktadır.";
+                ViewBag.ErrorMessage = $"{obj.Contact.Name} yayınevine ait kitap olduğu için yayınevi silinemez. Bu yayınevini silmek istiyorsanız, lütfen kitaptan bu yayınevini kaldırın ve ardından silmeyi tekrar deneyin.";
+                return View("ErrorView");
+                throw;
+            }
+
+            
         }
 
 

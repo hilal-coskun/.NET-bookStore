@@ -10,6 +10,7 @@ namespace Entities.Concrete
 {
     public class Author : IEntity
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
         //[Required]
         public string Name { get; set; }

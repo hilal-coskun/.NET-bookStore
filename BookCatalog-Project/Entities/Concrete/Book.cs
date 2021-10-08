@@ -9,7 +9,7 @@ namespace Entities.Concrete
 {
     public class Book : IEntity
     {
-
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
         //[Required]
         public int LanguageID { get; set; }

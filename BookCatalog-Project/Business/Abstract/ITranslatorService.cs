@@ -15,6 +15,7 @@ namespace Business.Abstract
         void Add(Translator translator, string dosyayolu);
         void Delete(Translator translator);
         void Update(Translator translator);
+        void UpdateImage(Translator translator, string dosyayolu);
     }
 }
 

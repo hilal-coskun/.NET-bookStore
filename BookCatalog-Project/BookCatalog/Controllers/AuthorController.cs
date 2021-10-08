@@ -1,4 +1,5 @@
 ﻿
+using BookCatalog.Filter;
 using BookCatalog.Models;
 using Business.Abstract;
 using Entities.Concrete;
@@ -15,7 +16,7 @@ using X.PagedList;
 
 namespace BookCatalog.Controllers
 {
-    [Authorize]
+    [UserFilter]
     public class AuthorController : Controller
     {
         private IAuthorService _authorService;
@@ -76,8 +77,17 @@ namespace BookCatalog.Controllers
         [HttpPost]
         public IActionResult Detail(Author author)
         {
-            _authorService.Update(author);
-            return RedirectToAction("List");
+            try
+            {
+                _authorService.Update(author);
+                return RedirectToAction("List");
+            }
+            catch (Exception)
+            {
+                return View("ErrorView");
+                throw;
+            }
+            
         }
 
         [HttpGet]
@@ -91,8 +101,20 @@ namespace BookCatalog.Controllers
         public IActionResult DeletePost(int id)
         {
             var obj = _authorService.GetById(id);
-            _authorService.Delete(obj);
-            return RedirectToAction("List");
+            try
+            {
+                obj = _authorService.GetById(id);
+                _authorService.Delete(obj);
+                return RedirectToAction("List");
+            }
+            catch (Exception)
+            {
+                ViewBag.ErrorTitle = $"{obj.Name} rolü kullanılmaktadır.";
+                ViewBag.ErrorMessage = $"{obj.Name} yazarına ait kitap olduğu için yazar silinemez. Bu yazarı silmek istiyorsanız, lütfen kitaplardan bu yazarı kaldırın ve ardından silmeyi tekrar deneyin.";
+                return View("ErrorView");
+                throw;
+            }
+            
         }
 
 

@@ -9,6 +9,7 @@ namespace Entities.Concrete
 {
     public class Translator : IEntity
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
         public string Name { get; set; }
         public string About { get; set; }

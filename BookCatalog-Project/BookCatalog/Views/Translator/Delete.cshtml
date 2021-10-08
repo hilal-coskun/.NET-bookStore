@@ -18,7 +18,7 @@
                     <label for="name" style="font-weight: bold;">Ad</label>
                 </div>
                 <div class="col-75">
-                    <input type="text" asp-for="Name" name="name" id="name">
+                    <input type="text" disabled asp-for="Name" name="name" id="name">
                 </div>
             </div>
             <div class="row" style="padding-top: 10px;">
@@ -26,11 +26,11 @@
                     <label for="about" style="font-weight: bold;">Hakkında</label>
                 </div>
                 <div class="col-75">
-                    <textarea type="text" asp-for="About" id="about" name="about"></textarea>
+                    <textarea type="text" disabled asp-for="About" id="about" name="about"></textarea>
                 </div>
             </div>
             <div class="row" style="margin-top: 30px;">
-                <button type="submit" class="submitButton"><a>Kaydet</a></button>
+                <button type="submit" class="submitButton"><a>Sil</a></button>
             </div>
         </form>
     </div>

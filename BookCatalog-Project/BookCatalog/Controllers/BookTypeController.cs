@@ -1,4 +1,5 @@
-﻿using BookCatalog.Models;
+﻿using BookCatalog.Filter;
+using BookCatalog.Models;
 using Business.Abstract;
 using Entities.Concrete;
 using Microsoft.AspNetCore.Authorization;
@@ -13,6 +14,7 @@ using X.PagedList;
 
 namespace BookStore.Controllers
 {
+    [UserFilter]
     public class BookTypeController : Controller
     {
         private IBookTypeService _bookTypeService;
@@ -82,8 +84,18 @@ namespace BookStore.Controllers
         public IActionResult DeletePost(int id)
         {
             var obj = _bookTypeService.GetByIdCategories(id);
-            _bookTypeService.Delete(obj);
-            return RedirectToAction("List");
+            try
+            {
+                 obj = _bookTypeService.GetByIdCategories(id);
+                _bookTypeService.Delete(obj);
+                return RedirectToAction("List");
+            }
+            catch (Exception)
+            {
+                ViewBag.ErrorTitle = $"{obj.Name} rolü kullanılmaktadır.";
+                ViewBag.ErrorMessage = $"{obj.Name} Bu kitap türüne ait kitap olduğu için Çocuk ve Gençlik türü silinemez. Bu türü silmek istiyorsanız, lütfen kitaplardan bu türü kaldırın ve ardından silmeyi tekrar deneyin.";
+                return View("ErrorView");
+            }
         }
 
         [HttpGet]

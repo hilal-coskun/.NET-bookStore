@@ -50,6 +50,8 @@
           "Microsoft.Extensions.Configuration.Binder": "5.0.0",
           "Microsoft.IdentityModel.Tokens": "6.12.2",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "5.0.2",
+          "NLog": "4.7.11",
+          "NLog.Config": "4.7.11",
           "X.PagedList.Mvc.Core": "8.1.0",
           "Microsoft.AspNetCore.Antiforgery.Reference": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions.Reference": "5.0.0.0",
@@ -1714,6 +1716,24 @@
           "lib/netstandard1.3/Newtonsoft.Json.Bson.dll": {}
         }
       },
+      "NLog/4.7.11": {
+        "runtime": {
+          "lib/netstandard2.0/NLog.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.7.11.13229"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/NLog.dll": {}
+        }
+      },
+      "NLog.Config/4.7.11": {
+        "dependencies": {
+          "NLog": "4.7.11",
+          "NLog.Schema": "4.7.11"
+        }
+      },
+      "NLog.Schema/4.7.11": {},
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
       "runtime.fedora.23-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
       "runtime.fedora.24-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
@@ -2793,6 +2813,8 @@
           "Microsoft.Extensions.Configuration.Binder": "5.0.0",
           "Microsoft.IdentityModel.Tokens": "6.12.2",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "5.0.2",
+          "NLog": "4.7.11",
+          "NLog.Config": "4.7.11",
           "X.PagedList.Mvc.Core": "8.1.0"
         },
         "runtime": {
@@ -2818,6 +2840,8 @@
           "Microsoft.Extensions.Configuration.Binder": "5.0.0",
           "Microsoft.IdentityModel.Tokens": "6.12.2",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "5.0.2",
+          "NLog": "4.7.11",
+          "NLog.Config": "4.7.11",
           "X.PagedList.Mvc.Core": "8.1.0"
         },
         "runtime": {
@@ -2845,6 +2869,8 @@
           "Microsoft.Extensions.Configuration.Binder": "5.0.0",
           "Microsoft.IdentityModel.Tokens": "6.12.2",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "5.0.2",
+          "NLog": "4.7.11",
+          "NLog.Config": "4.7.11",
           "X.PagedList.Mvc.Core": "8.1.0"
         },
         "runtime": {
@@ -2871,6 +2897,8 @@
           "Microsoft.Extensions.Configuration.Binder": "5.0.0",
           "Microsoft.IdentityModel.Tokens": "6.12.2",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "5.0.2",
+          "NLog": "4.7.11",
+          "NLog.Config": "4.7.11",
           "X.PagedList.Mvc.Core": "8.1.0"
         },
         "runtime": {
@@ -5319,6 +5347,27 @@
       "sha512": "sha512-5PYT/IqQ+UK31AmZiSS102R6EsTo+LGTSI8bp7WAUqDKaF4wHXD8U9u4WxTI1vc64tYi++8p3dk3WWNqPFgldw==",
       "path": "newtonsoft.json.bson/1.0.1",
       "hashPath": "newtonsoft.json.bson.1.0.1.nupkg.sha512"
+    },
+    "NLog/4.7.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-A7EpoOjWesV5BPx1cOiBndazZq1VGdagIs6oK8ttcRDl5adCMtHiTqnsD5yYaOrMxOQeCjHBf/w3nKzCmhGbgw==",
+      "path": "nlog/4.7.11",
+      "hashPath": "nlog.4.7.11.nupkg.sha512"
+    },
+    "NLog.Config/4.7.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-p9N8dsMVdyXNN+KU2BsBFZ1aR+usL8JWPKe1YuXlKjPEQsltYO43tajlkX2Kilai+PAE1zw9UC8AaBq5r78x3A==",
+      "path": "nlog.config/4.7.11",
+      "hashPath": "nlog.config.4.7.11.nupkg.sha512"
+    },
+    "NLog.Schema/4.7.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9mmj/hApaSmX9jP2PxLyqywesdEI1nIT2TVWgsdoqb1yIpxvUM+1b6aMD2zJkpGN8y71jmVO2d/FKTwQXIfpSw==",
+      "path": "nlog.schema/4.7.11",
+      "hashPath": "nlog.schema.4.7.11.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
       "type": "package",

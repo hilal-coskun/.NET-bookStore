@@ -18,3 +18,4 @@ C:\Users\USER\Desktop\yedek\DENEME-BK\DataAccess\obj\Debug\net5.0\DataAccess.dll
 C:\Users\USER\Desktop\yedek\DENEME-BK\DataAccess\obj\Debug\net5.0\ref\DataAccess.dll
 C:\Users\USER\Desktop\yedek\DENEME-BK\DataAccess\obj\Debug\net5.0\DataAccess.pdb
 C:\Users\USER\Desktop\yedek\DENEME-BK\DataAccess\obj\Debug\net5.0\DataAccess.genruntimeconfig.cache
+C:\Users\USER\Desktop\yedek\DENEME-BK\DataAccess\bin\Debug\net5.0\NLog.config

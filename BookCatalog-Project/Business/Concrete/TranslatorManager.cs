@@ -71,5 +71,10 @@ namespace Business.Concrete
         {
             return _translatorDal.SearchFilter(Empsearch);
         }
+
+        public void UpdateImage(Translator translator, string dosyayolu)
+        {
+            _translatorDal.Update(translator);
+        }
     }
 }

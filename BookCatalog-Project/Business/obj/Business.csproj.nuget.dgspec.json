@@ -118,6 +118,14 @@
               "target": "Package",
               "version": "[5.0.2, )"
             },
+            "NLog": {
+              "target": "Package",
+              "version": "[4.7.11, )"
+            },
+            "NLog.Config": {
+              "target": "Package",
+              "version": "[4.7.11, )"
+            },
             "X.PagedList.Mvc.Core": {
               "target": "Package",
               "version": "[8.1.0, )"
@@ -245,6 +253,14 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[5.0.2, )"
+            },
+            "NLog": {
+              "target": "Package",
+              "version": "[4.7.11, )"
+            },
+            "NLog.Config": {
+              "target": "Package",
+              "version": "[4.7.11, )"
             },
             "X.PagedList.Mvc.Core": {
               "target": "Package",
@@ -381,6 +397,14 @@
               "target": "Package",
               "version": "[5.0.2, )"
             },
+            "NLog": {
+              "target": "Package",
+              "version": "[4.7.11, )"
+            },
+            "NLog.Config": {
+              "target": "Package",
+              "version": "[4.7.11, )"
+            },
             "X.PagedList.Mvc.Core": {
               "target": "Package",
               "version": "[8.1.0, )"
@@ -512,6 +536,14 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[5.0.2, )"
+            },
+            "NLog": {
+              "target": "Package",
+              "version": "[4.7.11, )"
+            },
+            "NLog.Config": {
+              "target": "Package",
+              "version": "[4.7.11, )"
             },
             "X.PagedList.Mvc.Core": {
               "target": "Package",

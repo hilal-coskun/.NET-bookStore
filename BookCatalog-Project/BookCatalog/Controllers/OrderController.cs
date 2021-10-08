@@ -1,4 +1,5 @@
-﻿using BookCatalog.Models;
+﻿using BookCatalog.Filter;
+using BookCatalog.Models;
 using Business.Abstract;
 using Entities.Concrete;
 using Microsoft.AspNetCore.Mvc;
@@ -11,6 +12,7 @@ using X.PagedList;
 
 namespace BookStore.Controllers
 {
+    [UserFilter]
     public class OrderController : Controller
     {
         private IOrderService _orderService;

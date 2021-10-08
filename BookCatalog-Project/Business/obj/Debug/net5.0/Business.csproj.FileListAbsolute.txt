@@ -20,3 +20,4 @@ C:\Users\USER\Desktop\yedek\DENEME-BK\Business\obj\Debug\net5.0\Business.dll
 C:\Users\USER\Desktop\yedek\DENEME-BK\Business\obj\Debug\net5.0\ref\Business.dll
 C:\Users\USER\Desktop\yedek\DENEME-BK\Business\obj\Debug\net5.0\Business.pdb
 C:\Users\USER\Desktop\yedek\DENEME-BK\Business\obj\Debug\net5.0\Business.genruntimeconfig.cache
+C:\Users\USER\Desktop\yedek\DENEME-BK\Business\bin\Debug\net5.0\NLog.config

@@ -75,8 +75,17 @@ namespace BookStore.Controllers
         [HttpPost]
         public IActionResult Detail(Translator translator)
         {
-            _translatorService.Update(translator);
-            return RedirectToAction("List");
+            try
+            {
+                _translatorService.Update(translator);
+                return RedirectToAction("List");
+            }
+            catch (Exception)
+            {
+                return View("ErrorView");
+                throw;
+            }
+            
         }
 
 
@@ -92,8 +101,19 @@ namespace BookStore.Controllers
         public IActionResult DeletePost(int id)
         {
             var obj = _translatorService.GetById(id);
-            _translatorService.Delete(obj);
-            return RedirectToAction("List");
+            try
+            {
+                obj = _translatorService.GetById(id);
+                _translatorService.Delete(obj);
+                return RedirectToAction("List");
+            }
+            catch (Exception)
+            {
+                ViewBag.ErrorTitle = $"{obj.Name} rolü kullanılmaktadır.";
+                ViewBag.ErrorMessage = $"{obj.Name} kitap kategorisine ait kitap türü olduğu için kategori silinemez. Bu kategoriyi silmek istiyorsanız, lütfen kitap türlerinden bu kategoriyi kaldırın ve ardından silmeyi tekrar deneyin.";
+                return View("ErrorView");
+                throw;
+            }
         }
 
         [HttpGet]

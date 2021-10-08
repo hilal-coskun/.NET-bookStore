@@ -12,6 +12,7 @@
 <article class="container">
     <div class="item">
         <form asp-controller="bookpublisher" asp-action="DeletePost" method="post">
+            <input asp-for="ID" hidden />
             <div class="row">
                 <div class="col-25">
                     <label for="name">Ad</label>
@@ -37,7 +38,7 @@
                 </div>
             </div>
             <div class="row" style="margin-top: 30px;">
-                <button type="submit" class="submitButton"><a>Kaydet</a></button>
+                <button type="submit" class="submitButton"><a>Sil</a></button>
             </div>
         </form>
     </div>
