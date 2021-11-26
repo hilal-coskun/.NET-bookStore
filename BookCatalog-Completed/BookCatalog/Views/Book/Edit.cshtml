@@ -1,0 +1,141 @@
+﻿@model Book
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<ul class="menu">
+    <li><a onclick="geri()"><i class="fas fa-arrow-left" style="cursor: pointer; padding-right: 20px;"></i></a> Kitap Düzenle</li>
+</ul>
+<ul></ul>
+            </nav>
+<article class="container">
+    <div class="item">
+        <form method="post" asp-action="edit" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-25">
+                    <label for="name" style="font-weight: bold;">Ad</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" asp-for="Name" name="name" id="name">
+                </div>
+            </div>
+            <div class="row" style="padding-top: 10px;">
+                <div class="col-25">
+                    <label for="author" style="font-weight: bold;">Yazar Adı</label>
+                </div>
+                <div class="col-75">
+                    @Html.DropDownListFor(x => x.AuthorID, (List<SelectListItem>)ViewBag.v4, new { @id = "author" })
+                </div>
+            </div>
+            <div class="row" style="padding-top: 10px;">
+                <div class="col-25">
+                    <label for="blurb">Hakkında</label>
+                </div>
+                <div class="col-75">
+                    <textarea type="text" asp-for="Blurb" id="blurb" name="blurb"></textarea>
+                </div>
+            </div>
+            <div class="row" style="padding-top: 10px;">
+                <div class="col-25">
+                    <label for="bookCategory" style="font-weight: bold;">Kitap Kategorisi</label>
+                </div>
+                <div class="col-75">
+                    @Html.DropDownListFor(x => x.BookCategoryID, (List<SelectListItem>)ViewBag.v5, new { @id = "bookCategory" })
+                </div>
+            </div>
+            <div class="row" style="padding-top: 10px;">
+                <div class="col-25">
+                    <label for="bookType" style="font-weight: bold;">Kitap Türü</label>
+                </div>
+                <div class="col-75">
+                    @Html.DropDownListFor(x => x.BookTypeID, (List<SelectListItem>)ViewBag.v6, new { @id = "bookType" })
+                </div>
+            </div>
+            <div class="row" style="padding-top: 10px;">
+                <div class="col-25">
+                    <label for="publisher" style="font-weight: bold;">Yayınevi</label>
+                </div>
+                <div class="col-75">
+                    @Html.DropDownListFor(x => x.BookPublisherID, (List<SelectListItem>)ViewBag.v8, new { @id = "bookPublisher" })
+                </div>
+            </div>
+            <div class="row" style="padding-top: 10px;">
+                <div class="col-25">
+                    <label for="language" style="font-weight: bold;">Dil</label>
+                </div>
+                <div class="col-75">
+                    @Html.DropDownListFor(x => x.LanguageID, (List<SelectListItem>)ViewBag.v1, new { @id = "language" })
+                </div>
+            </div>
+            <div class="row" style="padding-top: 10px;">
+                <div class="col-25">
+                    <label for="paperType" style="font-weight: bold;">Kağıt Tipi</label>
+                </div>
+                <div class="col-75">
+                    @Html.DropDownListFor(x => x.PaperTypeID, (List<SelectListItem>)ViewBag.v2, new { @id = "paperType" })
+                </div>
+            </div>
+            <div class="row" style="padding-top: 10px;">
+                <div class="col-25">
+                    <label for="PagesOfNumber" style="font-weight: bold;">Sayfa Sayısı</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" asp-for="PagesOfNumber" name="PagesOfNumber" id="PagesOfNumber">
+                </div>
+            </div>
+            <div class="row" style="padding-top: 10px;">
+                <div class="col-25">
+                    <label for="ısbn" style="font-weight: bold;">ISBN</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" asp-for="ISBN" name="ısbn" id="ısbn">
+                </div>
+            </div>
+            <div class="row" style="padding-top: 10px;">
+                <div class="col-25">
+                    <label for="size" style="font-weight: bold;">Size</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" name="Size" asp-for="Size" id="size">
+                </div>
+            </div>
+            <div class="row" style="padding-top: 10px;">
+                <div class="col-25">
+                    <label for="translator" style="font-weight: bold;">Mütercim</label>
+                </div>
+                <div class="col-75">
+                    @Html.DropDownListFor(x => x.TranslatorID, (List<SelectListItem>)ViewBag.v7, new { @id = "translator" })
+                </div>
+            </div>
+            <div class="row" style="padding-top: 10px;">
+                <div class="col-25">
+                    <label for="AmountOfStock" style="font-weight: bold;">Stok Sayısı</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" asp-for="AmountOfStock" name="AmountOfStock" id="stok">
+                </div>
+            </div>
+            <div class="row" style="padding-top: 10px;">
+                <div class="col-25">
+                    <label for="price" style="font-weight: bold;">Fiyat</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" asp-for="Price" name="price" id="price">
+                </div>
+            </div>
+            <div class="row" style="padding-top: 10px;">
+                <div class="col-25">
+                    <label for="PictureFile" style="font-weight: bold;">Fotoğraf</label>
+                </div>
+                <div class="col-75">
+                    <input type="file" asp-for="PictureFile" name="PictureFile" id="PictureFile">
+                </div>
+            </div>
+            <div class="row" style="margin-top: 30px;">
+                <button type="submit" class="submitButton"><a>Kaydet</a></button>
+            </div>
+        </form>
+    </div>
+
+</article>
