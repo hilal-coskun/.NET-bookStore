@@ -11,7 +11,7 @@ namespace DataAccess.Concrete.EntityFramework.Contexts
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=LAPTOP-7T3A46FU\MSSQLSERVER_2;initial catalog=BCatalog2;User id=sa; password=1397");
+            optionsBuilder.UseSqlServer(@"Server=LAPTOP-7T3A46FU\MSSQLSERVER_2;initial catalog=BCatalog2;User id=; password=");
         }
         
         protected override void OnModelCreating(ModelBuilder modelBuilder)
